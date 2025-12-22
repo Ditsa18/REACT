@@ -127,7 +127,8 @@ src/
 
 ### 🏠 Home Page
 
-<img width="1854" height="911" alt="Screenshot 2025-12-22 170225" src="https://github.com/user-attachments/assets/a7b6d44a-3a29-4886-b7e2-a7cf948c1ef8" />
+<img width="1755" height="2911" alt="image" src="https://github.com/user-attachments/assets/fc5b2451-fa29-425d-a910-63fd7bd0c964" />
+
 
 
 
