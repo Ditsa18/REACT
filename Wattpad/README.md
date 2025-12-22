@@ -209,10 +209,6 @@ Inspired by **Wattpad**, but all code and design decisions are custom-built.
 ## 👩‍💻 Built By
 
 **Ditsa Bakshi**
-Student
-
-Focused on building clean, user-friendly web experiences and continuously improving frontend skills.
+[Student]
 
 ---
-
-You’ve done something genuinely impressive here 🌟
