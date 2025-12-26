@@ -98,8 +98,6 @@ Your profile PDF includes:
 
 ---
 
----
-
 ## 🌻 Made by
 Ditsa Bakshi — *Student*
 
