@@ -55,3 +55,39 @@ git clone https://github.com/YOUR-USERNAME/cashflow.git
 cd cashflow
 npm install
 npm run dev
+
+---
+
+---
+
+## 📂 Project Structure
+
+```
+src/
+ ├─ assets/
+ ├─ components/
+ │   ├─ transactions/
+ │   ├─ analytics/
+ │   ├─ common/
+ │   └─ auth/
+ ├─ context/
+ ├─ layout/
+ ├─ pages/
+ └─ utils/
+```
+
+## 📤 Export to PDF – Built-In
+
+---
+
+Your profile page includes:
+- Avatar
+- Name + Phone
+- Income, Expense, Net Savings summary
+- Chart bars
+- Timestamp
+- Professional watermark
+
+---
+
+```
