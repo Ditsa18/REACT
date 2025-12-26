@@ -58,8 +58,6 @@ npm run dev
 
 ---
 
----
-
 ## 📂 Project Structure
 
 ```
@@ -75,7 +73,6 @@ src/
  ├─ pages/
  └─ utils/
 ```
-
 
 ---
 
