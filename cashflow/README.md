@@ -96,9 +96,9 @@ Your profile PDF includes:
 * 🕒 Timestamp
 * 🏷️ CashFlow branded watermark
 
-```
+---
 
-```
+---
 
 ## 🌻 Made by
 Ditsa Bakshi — *Student*
