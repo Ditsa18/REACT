@@ -1,0 +1,15 @@
+:root {
+  --bg-main: #f5f7fb;
+  --bg-card: #ffffff;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --border-color: #e5e7eb;
+}
+
+[data-theme='dark'] {
+  --bg-main: #0b1220;
+  --bg-card: #111827;
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5f5;
+  --border-color: #1f2933;
+}
