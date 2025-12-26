@@ -48,13 +48,22 @@ A modern 💎 finance dashboard to **track income, expenses, budgets, categories
 
 ---
 
+---
 ## 🛠️ Installation
 
+Clone the repo:
 ```bash
 git clone https://github.com/YOUR-USERNAME/cashflow.git
 cd cashflow
 npm install
 npm run dev
+````
+
+Build for production:
+
+```bash
+npm run build
+```
 
 ---
 
@@ -76,17 +85,20 @@ src/
 
 ---
 
-## 📤 Export to PDF – Built-In
-Your profile page includes:
-- Avatar
-- Name + Phone
-- Income, Expense, Net Savings summary
-- Chart bars
-- Timestamp
-- Professional watermark
+## 📤 Export to PDF — Built-In
+
+Your profile PDF includes:
+
+* 👤 Avatar
+* 📱 Name & Phone
+* 💰 Income, Expense & Net Savings summary
+* 📊 Horizontal bar chart
+* 🕒 Timestamp
+* 🏷️ CashFlow branded watermark
+
 ```
 
----
+```
 
 ## 🌻 Made by
 Ditsa Bakshi — *Student*
