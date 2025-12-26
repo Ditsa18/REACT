@@ -76,10 +76,10 @@ src/
  └─ utils/
 ```
 
-## 📤 Export to PDF – Built-In
 
 ---
 
+## 📤 Export to PDF – Built-In
 Your profile page includes:
 - Avatar
 - Name + Phone
@@ -87,7 +87,11 @@ Your profile page includes:
 - Chart bars
 - Timestamp
 - Professional watermark
+```
 
 ---
 
-```
+## 🌻 Made by
+Ditsa Bakshi — *Student*
+
+---
