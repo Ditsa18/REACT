@@ -4,6 +4,12 @@ A modern 💎 finance dashboard to **track income, expenses, budgets, categories
 
 ---
 
+## 🚀 Live Demo
+
+👉 [Click here to try CashFlow](https://cashflow-nine-lime.vercel.app/)
+
+---
+
 ## 🚀 Features
 
 | Feature | Description |
