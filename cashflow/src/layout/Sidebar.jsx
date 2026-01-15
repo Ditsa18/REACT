@@ -14,7 +14,7 @@ function Sidebar() {
         <span className="sidebar-title">CashFlow</span>
       </div>
 
-      {/* Toggle */}
+      {/* Toggle (desktop / tablet only via CSS) */}
       <button
         className="sidebar-toggle"
         onClick={() => setCollapsed(!collapsed)}
@@ -27,68 +27,66 @@ function Sidebar() {
 
       {/* Navigation */}
       <nav className="sidebar-nav">
-  <NavLink
-    to="/app/dashboard"
-    className={({ isActive }) =>
-      `sidebar-link ${isActive ? 'active' : ''}`
-    }
-  >
-    <FontAwesomeIcon icon="chart-line" />
-    <span className="link-text">Dashboard</span>
-  </NavLink>
+        <NavLink
+          to="/app/dashboard"
+          className={({ isActive }) =>
+            `sidebar-link ${isActive ? 'active' : ''}`
+          }
+        >
+          <FontAwesomeIcon icon="chart-line" />
+          <span className="link-text">Dashboard</span>
+        </NavLink>
 
-  <NavLink
-    to="/app/transactions"
-    className={({ isActive }) =>
-      `sidebar-link ${isActive ? 'active' : ''}`
-    }
-  >
-    <FontAwesomeIcon icon="receipt" />
-    <span className="link-text">Transactions</span>
-  </NavLink>
+        <NavLink
+          to="/app/transactions"
+          className={({ isActive }) =>
+            `sidebar-link ${isActive ? 'active' : ''}`
+          }
+        >
+          <FontAwesomeIcon icon="receipt" />
+          <span className="link-text">Transactions</span>
+        </NavLink>
 
-  <NavLink
-    to="/app/history"
-    className={({ isActive }) =>
-      `sidebar-link ${isActive ? 'active' : ''}`
-    }
-  >
-    <FontAwesomeIcon icon="clock-rotate-left" />
-    <span className="link-text">History</span>
-  </NavLink>
+        <NavLink
+          to="/app/history"
+          className={({ isActive }) =>
+            `sidebar-link ${isActive ? 'active' : ''}`
+          }
+        >
+          <FontAwesomeIcon icon="clock-rotate-left" />
+          <span className="link-text">History</span>
+        </NavLink>
 
-  <NavLink
-    to="/app/analytics"
-    className={({ isActive }) =>
-      `sidebar-link ${isActive ? 'active' : ''}`
-    }
-  >
-    <FontAwesomeIcon icon="chart-pie" />
-    <span className="link-text">Analytics</span>
-  </NavLink>
+        <NavLink
+          to="/app/analytics"
+          className={({ isActive }) =>
+            `sidebar-link ${isActive ? 'active' : ''}`
+          }
+        >
+          <FontAwesomeIcon icon="chart-pie" />
+          <span className="link-text">Analytics</span>
+        </NavLink>
 
-  <NavLink
-    to="/app/categories"
-    className={({ isActive }) =>
-      `sidebar-link ${isActive ? 'active' : ''}`
-    }
-  >
-    <FontAwesomeIcon icon="tags" />
-    <span className="link-text">Categories</span>
-  </NavLink>
+        <NavLink
+          to="/app/categories"
+          className={({ isActive }) =>
+            `sidebar-link ${isActive ? 'active' : ''}`
+          }
+        >
+          <FontAwesomeIcon icon="tags" />
+          <span className="link-text">Categories</span>
+        </NavLink>
 
-  <NavLink
-    to="/app/settings"
-    className={({ isActive }) =>
-      `sidebar-link ${isActive ? 'active' : ''}`
-    }
-  >
-    <FontAwesomeIcon icon="gear" />
-    <span className="link-text">Settings</span>
-  </NavLink>
-</nav>
-
-
+        <NavLink
+          to="/app/settings"
+          className={({ isActive }) =>
+            `sidebar-link ${isActive ? 'active' : ''}`
+          }
+        >
+          <FontAwesomeIcon icon="gear" />
+          <span className="link-text">Settings</span>
+        </NavLink>
+      </nav>
     </aside>
   )
 }

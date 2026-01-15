@@ -164,26 +164,77 @@
   color: var(--text-secondary);
   line-height: 1.4;
 }
+
+/* Responsive adjustments */
 @media (max-width: 900px) {
-  .dashboard-row {
-    grid-template-columns: 1fr;
+  .summary {
+    padding: 18px;
   }
 
-  .summary-grid {
-    grid-template-columns: 1fr;
+  .summary h3 {
+    font-size: 1.25rem;
+  }
+
+  .balance-amount {
+    font-size: 2rem;
   }
 }
 
 @media (max-width: 768px) {
   .dashboard {
-    gap: 16px;
+    gap: 14px;
   }
 
-  .card {
+  /* Stack everything vertically */
+  .dashboard-row {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .summary-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  /* Reduce card padding */
+  .summary,
+  .balance-card {
     padding: 16px;
-    border-radius: 12px;
+  }
+
+  /* Typography scaling */
+  .summary h3 {
+    font-size: 1.1rem;
+  }
+
+  .balance-amount {
+    font-size: 1.8rem;
+  }
+
+  .pulse-row,
+  .category-list li {
+    font-size: 0.85rem;
   }
 }
+
+@media (max-width: 480px) {
+  .summary h3 {
+    font-size: 1rem;
+  }
+
+  .balance-amount {
+    font-size: 1.6rem;
+  }
+
+  .card-label {
+    font-size: 0.8rem;
+  }
+
+  .budget-info {
+    font-size: 0.75rem;
+  }
+}
+
 
 /* ---------- Transactions Layout ---------- */
 .txn-card h4 {
@@ -333,6 +384,67 @@
   transform: translateY(-1px);
 }
 
+/* Responsive */
+@media (max-width: 768px) {
+  /* Stack form inputs */
+  .transaction-form {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .transaction-form button {
+    width: 100%;
+  }
+
+  /* Transaction row spacing */
+  .txn-item {
+    padding: 12px 0;
+  }
+
+  .txn-right {
+    gap: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Transaction row becomes vertical */
+  .txn-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  /* Left side stays aligned */
+  .txn-left {
+    gap: 10px;
+  }
+
+  /* Right side moves below */
+  .txn-right {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .txn-amount {
+    font-size: 1rem;
+  }
+
+  /* Form padding tweak */
+  .transaction-form {
+    padding: 12px;
+  }
+
+  .transaction-form input,
+  .transaction-form select {
+    font-size: 0.85rem;
+  }
+
+  /* Smaller delete icon */
+  .txn-right button {
+    font-size: 0.85rem;
+  }
+}
 
 /* ANALYTICS PAGE */
 .analytics-page {
@@ -449,6 +561,70 @@
 @media (max-width: 900px) {
   .analytics-charts {
     grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 768px) {
+  /* Slightly tighter page spacing */
+  .analytics-page {
+    gap: 20px;
+  }
+
+  /* Summary cards spacing */
+  .analytics-summary {
+    gap: 16px;
+  }
+
+  .analytics-summary .card h3 {
+    font-size: 1.3rem;
+  }
+
+  /* Chart card padding */
+  .analytics-charts .card {
+    padding: 14px 16px;
+  }
+
+  .analytics-charts h4 {
+    font-size: 0.95rem;
+  }
+}
+@media (max-width: 480px) {
+  /* Page title spacing */
+  .analytics-page .page-title {
+    font-size: 1.25rem;
+  }
+
+  /* Summary cards become compact */
+  .analytics-summary .card {
+    padding: 14px;
+  }
+
+  .analytics-summary .card p {
+    font-size: 0.8rem;
+  }
+
+  .analytics-summary .card h3 {
+    font-size: 1.15rem;
+  }
+
+  /* Charts stack cleanly */
+  .analytics-charts {
+    gap: 16px;
+  }
+
+  /* Chart subtext smaller */
+  .chart-subtext {
+    font-size: 0.75rem;
+  }
+
+  /* Legend becomes two-column */
+  .category-legend {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .legend-item {
+    font-size: 0.8rem;
   }
 }
 
@@ -1276,17 +1452,83 @@
   color: #dc2626;
 }
 
-/* MOBILE */
-@media (max-width: 600px) {
-  .history-head,
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  /* Header stacks */
+  .history-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .history-toggle {
+    width: 100%;
+  }
+
+  .history-toggle button {
+    flex: 1;
+    text-align: center;
+  }
+
+  /* Quick filter scroll */
+  .history-quick {
+    overflow-x: auto;
+    padding-bottom: 6px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Hide table head */
+  .history-head {
+    display: none;
+  }
+
+  /* Card-style rows */
   .history-row {
-    grid-template-columns: 1.6fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 14px;
+    border-radius: 12px;
+    background: var(--bg-card);
+    margin-bottom: 10px;
+  }
+
+  .history-row:not(:last-child) {
+    border-bottom: none;
+  }
+
+  .history-date {
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+
+  /* Amount layout */
+  .history-row span {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+  }
+
+  .history-row span::before {
+    content: attr(data-label);
+    color: var(--text-secondary);
+  }
+
+  /* Modal stats stack */
+  .overlay-stats {
+    grid-template-columns: 1fr;
+    gap: 10px;
   }
 
   .overlay-card {
-    padding: 20px;
+    max-height: 85vh;
+    overflow-y: auto;
   }
+  .overlay {
+  z-index: 5000;
 }
+}
+
 /* ---------- LOGOUT MODAL ---------- */
 .logout-modal {
   background: var(--bg-card);
@@ -1441,4 +1683,18 @@
   border: 1px solid var(--border-color);
   background: transparent;
   cursor: pointer;
+}
+
+/* ---------- LOGOUT MODAL BACKDROP (FIX) ---------- */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(4px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 5000; /* ABOVE sidebar */
 }

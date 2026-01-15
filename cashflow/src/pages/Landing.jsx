@@ -24,7 +24,7 @@ function Landing() {
       <div className="bg-blob blob-2" />
 
       {/* navbar */}
-      <header className="landing-nav">
+      <header className="landing-nav" style={{ color: 'black' }}>
         <div className="nav-left">
           <img src={logo} alt="CashFlow logo" />
           <span>CashFlow</span>
