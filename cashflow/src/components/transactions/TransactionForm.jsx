@@ -8,21 +8,28 @@ function TransactionForm() {
   const [text, setText] = useState('')
   const [amount, setAmount] = useState('')
   const [category, setCategory] = useState('')
+  const [type, setType] = useState('expense') // 👈 NEW
 
   function handleSubmit(e) {
     e.preventDefault()
     if (!text || !amount || !category) return
 
+    const finalAmount =
+      type === 'expense'
+        ? -Math.abs(Number(amount))
+        : Math.abs(Number(amount))
+
     addTransaction({
       id: Date.now(),
       text,
-      amount: +amount,
+      amount: finalAmount,
       category,
     })
 
     setText('')
     setAmount('')
     setCategory('')
+    setType('expense')
   }
 
   return (
@@ -30,6 +37,26 @@ function TransactionForm() {
       <h4>Add Transaction</h4>
 
       <form onSubmit={handleSubmit} className="transaction-form">
+
+        {/* 🔄 Income / Expense Toggle */}
+        <div className="txn-type-toggle">
+          <button
+            type="button"
+            className={type === 'expense' ? 'active expense' : ''}
+            onClick={() => setType('expense')}
+          >
+            Expense
+          </button>
+
+          <button
+            type="button"
+            className={type === 'income' ? 'active income' : ''}
+            onClick={() => setType('income')}
+          >
+            Income
+          </button>
+        </div>
+
         <input
           type="text"
           placeholder="Description"
@@ -39,7 +66,8 @@ function TransactionForm() {
 
         <input
           type="number"
-          placeholder="Amount (+ income, - expense)"
+          inputMode="numeric"
+          placeholder="Amount"
           value={amount}
           onChange={e => setAmount(e.target.value)}
         />
@@ -51,10 +79,11 @@ function TransactionForm() {
         >
           <option value="">Select category</option>
           {categories.map(cat => (
-            <option key={cat} value={cat}>
-              {cat}
-            </option>
-          ))}
+  <option key={cat} value={cat}>
+    {cat}
+  </option>
+))}
+
         </select>
 
         <button type="submit">

@@ -383,6 +383,31 @@
   background: #1d4ed8;
   transform: translateY(-1px);
 }
+.txn-type-toggle {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+.txn-type-toggle button {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-card);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.txn-type-toggle .expense.active {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.txn-type-toggle .income.active {
+  background: #dcfce7;
+  color: #16a34a;
+}
 
 /* Responsive */
 @media (max-width: 768px) {
@@ -443,6 +468,29 @@
   /* Smaller delete icon */
   .txn-right button {
     font-size: 0.85rem;
+  }
+}
+/* FIX: Transaction form overflow for mid-width screens */
+@media (max-width: 1000px) and (min-width: 769px) {
+  .transaction-form {
+    flex-wrap: wrap;
+  }
+
+  /* Toggle should always occupy full row */
+  .txn-type-toggle {
+    flex: 1 1 100%;
+  }
+
+  /* Inputs share space nicely */
+  .transaction-form input,
+  .transaction-form select {
+    flex: 1 1 48%;
+    min-width: 0;
+  }
+
+  /* Button goes to its own row */
+  .transaction-form button {
+    flex: 1 1 100%;
   }
 }
 
@@ -680,6 +728,7 @@
 .category-form button:active {
   transform: scale(0.97);
 }
+
 
 /* CATEGORY LIST */
 .category-list {

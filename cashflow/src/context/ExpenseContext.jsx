@@ -2,7 +2,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 
 const ExpenseContext = createContext();
 
-/* ------------ Default Categories (Education added) ------------ */
+/* ------------ Default Categories------------ */
 const DEFAULT_CATEGORIES = [
   "Food",
   "Transport",
@@ -11,7 +11,9 @@ const DEFAULT_CATEGORIES = [
   "Entertainment",
   "Health",
   "Salary",
-  "Education",   // 👈 NEW CATEGORY
+  "Education",
+  "Essentials", 
+  "Gifts",      
   "Others",
 ];
 

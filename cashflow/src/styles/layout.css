@@ -92,6 +92,7 @@
   flex: 1;
   display: flex;
   flex-direction: column;
+  min-width: 0; /* Prevents flex items from overflowing */
 }
 
 .topbar {
@@ -102,6 +103,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 24px;
+  box-sizing: border-box;
 }
 
 /* LEFT */
@@ -198,6 +200,7 @@
   background: var(--bg-card);
   color: var(--text-secondary);
   font-size: 0.85rem;
+  box-sizing: border-box;
 
   display: flex;
   align-items: center;
@@ -240,12 +243,10 @@
 }
 
 @media (max-width: 768px) {
-  /* Layout becomes column-based */
   .app-layout {
     flex-direction: column;
   }
 
-  /* Sidebar becomes off-canvas */
   .sidebar {
     position: fixed;
     left: 0;
@@ -256,29 +257,24 @@
     transition: transform 0.3s ease;
   }
 
-  /* Show sidebar when expanded */
   .sidebar.expanded {
     transform: translateX(0);
     width: 220px;
   }
 
-  /* Main area fills screen */
   .main-area {
     margin-left: 0;
     width: 100%;
   }
 
-  /* Topbar spacing */
   .topbar {
     padding: 0 14px;
   }
 
-  /* Hide center title if needed */
   .topbar-center {
     display: none;
   }
 
-  /* Profile text hidden, icon only */
   .topbar-profile span {
     display: none;
   }
@@ -295,107 +291,95 @@
     top: 0;
     height: 100vh;
     z-index: 1100;
-
-    transform: translateX(0) !important;
-    width: 180px;
-
     background-color: #0f172a;
+    transform: none !important;
   }
 
-  .sidebar.collapsed {
+  /* 🔁 INVERT LOGIC FOR THIS RANGE */
+
+  /* Default (expanded in JS → collapsed visually) */
+  .sidebar.expanded {
     width: 72px;
   }
 
-  .sidebar.expanded {
+  /* On click (collapsed in JS → expanded visually) */
+  .sidebar.collapsed {
     width: 180px;
+  }
+
+  /* Hide text by default */
+  .sidebar.expanded .link-text,
+  .sidebar.expanded .sidebar-title {
+    display: none;
+  }
+
+  /* Show text ONLY after click */
+  .sidebar.collapsed .link-text,
+  .sidebar.collapsed .sidebar-title {
+    display: inline;
   }
 
   .main-area {
     margin-left: 72px;
+    width: calc(100% - 72px);
+    box-sizing: border-box;
   }
 }
 
 @media (max-width: 480px) {
-  /* SIDEBAR (icon-only ↔ expandable) */
   .sidebar {
-    transform: translateX(0) !important;
     position: fixed;
     left: 0;
     top: 0;
     height: 100vh;
     z-index: 1200;
-
     background-color: #0f172a;
     border-right: 1px solid rgba(255, 255, 255, 0.08);
     box-shadow: 4px 0 12px rgba(0, 0, 0, 0.4);
-
-    transition: width 0.3s ease;
+    transform: none !important;
   }
 
-  /* JS controls width */
-  .sidebar.collapsed {
+  /* 🔁 INVERT LOGIC ON MOBILE */
+
+  /* DEFAULT (expanded in JS → collapsed visually) */
+  .sidebar.expanded {
     width: 64px;
   }
 
-  .sidebar.expanded {
+  /* WHEN USER CLICKS (collapsed in JS → expanded visually) */
+  .sidebar.collapsed {
     width: 220px;
   }
 
-  /*
-     TEXT VISIBILITY */
-  .sidebar.collapsed .link-text,
-  .sidebar.collapsed .sidebar-title {
+  /* Hide text by default */
+  .sidebar.expanded .link-text,
+  .sidebar.expanded .sidebar-title {
     display: none;
   }
 
-  .sidebar.expanded .link-text,
-  .sidebar.expanded .sidebar-title {
+  /* Show text ONLY after click */
+  .sidebar.collapsed .link-text,
+  .sidebar.collapsed .sidebar-title {
     display: inline;
   }
 
-  /* MAIN CONTENT */
   .main-area {
     margin-left: 64px;
-  }
-
-  .sidebar.expanded ~ .main-area {
-    margin-left: 64px;
-  }
-
-  .main-content {
-    padding: 16px;
-  }
-
-  /* TOPBAR */
-  .topbar {
-    height: 56px;
-    padding: 0 14px;
-  }
-
-  .topbar-left span {
-    font-size: 0.95rem;
-  }
-
-  .topbar-right {
-    gap: 10px;
-  }
-
-  /* FOOTER */
-  .footer {
-    padding: 14px;
-    font-size: 0.8rem;
-  }
-
-  .footer-links {
-    gap: 12px;
+    width: calc(100% - 64px);
+    box-sizing: border-box;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
   }
 }
+
 /* GLOBAL LAYOUT FIX*/
 .app-layout {
   min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
 }
 
-/* Main column stretches fully */
 .main-area {
   min-height: 100vh;
   display: flex;
@@ -403,14 +387,22 @@
   flex-direction: column;
 }
 
-/* Footer always pushed to bottom */
 .footer {
   margin-top: auto;
 }
 
-/* Sidebar must explicitly reach bottom (fixed elements) */
 .sidebar {
   top: 0;
   bottom: 0;      
   height: auto;    
+}
+
+@supports (height: 100dvh) {
+  .app-layout {
+    min-height: 100dvh;
+  }
+
+  .main-area {
+    min-height: 100dvh;
+  }
 }

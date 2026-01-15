@@ -1,4 +1,3 @@
-// Import ALL icons needed
 import {
   faUtensils,
   faCar,
@@ -8,7 +7,9 @@ import {
   faHeartPulse,
   faWallet,
   faBook,
-  faEllipsis
+  faEllipsis,
+  faBasketShopping,   // ✅ Essentials
+  faGift               // ✅ Gifts
 } from "@fortawesome/free-solid-svg-icons";
 
 export const CATEGORY_META = {
@@ -41,9 +42,20 @@ export const CATEGORY_META = {
     color: "#1640a3ff",
   },
   Education: {
-    icon: faBook,             // <-- FIXED
-    color: "#c4cb44ff",         // <-- FIXED (correct spelling)
+    icon: faBook,
+    color: "#c4cb44ff",
   },
+
+  /* 🆕 NEW CATEGORIES */
+  Essentials: {
+    icon: faBasketShopping,
+    color: "#0ea5e9",
+  },
+  Gifts: {
+    icon: faGift,
+    color: "#f43f5e",
+  },
+
   Others: {
     icon: faEllipsis,
     color: "#6b7280",
